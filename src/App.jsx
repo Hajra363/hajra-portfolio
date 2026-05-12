@@ -967,96 +967,59 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* CONTACT SECTION */}
-      <section id="contact" className="px-6 md:px-16 py-20 bg-slate-900/30">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="max-w-6xl mx-auto text-center"
-        >
-          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-            Let's Create Something Beautiful
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-slate-400 mb-12">Got a project in mind? Let's bring your ideas to life!</motion.p>
-          
-          <motion.div
-            variants={fadeUp}
-            whileHover={{ y: -5 }}
-            className="bg-gradient-to-br from-slate-900/80 to-slate-800/50 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-slate-700 max-w-3xl mx-auto"
-          >
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4 text-left">
-                {[
-                  { icon: "📧", label: "Email", value: "hajranawazish8@gmail.com", link: "mailto:hajranawazish8@gmail.com" },
-                  { icon: "📱", label: "Phone", value: "0312-7907581", link: "tel:03127907581" },
-                  { icon: "📍", label: "Location", value: "Islamabad, Pakistan", link: null },
-                  { icon: "🎨", label: "Portfolio", value: "View my work", link: "#" }
-                ].map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition cursor-pointer"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center text-2xl">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <p className="text-slate-400 text-sm">{item.label}</p>
-                      {item.link ? (
-                        <a href={item.link} className="text-white hover:text-pink-300 transition">
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="text-white">{item.value}</p>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-              
-              <div className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-pink-400 focus:outline-none transition"
-                />
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="w-full px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-pink-400 focus:outline-none transition"
-                />
-                <textarea
-                  placeholder="Tell me about your project..."
-                  rows="3"
-                  className="w-full px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700 focus:border-pink-400 focus:outline-none transition resize-none"
-                ></textarea>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl font-semibold hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300"
-                >
-                  Send Message →
-                </motion.button>
-              </div>
-            </div>
-            
-            <div className="flex gap-4 justify-center mt-8 pt-6 border-t border-slate-700">
-              {["💼", "🐙", "🔗", "📧", "🎨"].map((icon, idx) => (
-                <motion.button
-                  key={idx}
-                  whileHover={{ y: -5, rotate: 360 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-12 h-12 rounded-full bg-slate-800 hover:bg-pink-500/30 transition flex items-center justify-center text-xl"
-                >
-                  {icon}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
+{/* CONTACT SECTION - Email Click to Open Gmail Compose */}
+<section id="contact" className="px-6 md:px-16 py-20 bg-slate-900/30">
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeUp}
+    className="max-w-6xl mx-auto text-center"
+  >
+    <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+      Let's Connect
+    </motion.h2>
+    <motion.p variants={fadeUp} className="text-slate-400 mb-12">Click on my email to send me a message</motion.p>
+    
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -5 }}
+      className="bg-gradient-to-br from-slate-900/80 to-slate-800/50 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-slate-700 max-w-2xl mx-auto"
+    >
+      <div className="space-y-6 text-center">
+        
+        {/* Email Link - Opens Gmail Compose Window */}
+        <div className="flex flex-col items-center gap-3 p-4">
+          <div className="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500/20 to-purple-500/20 flex items-center justify-center text-4xl">
+            📧
+          </div>
+       <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=hajranawazish8@gmail.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-white hover:text-pink-300 transition text-xl md:text-2xl font-semibold hover:underline"
+>
+  hajranawazish8@gmail.com
+</a>
+          <p className="text-slate-500 text-sm">Click on email to open Gmail</p>
+        </div>
+        
+        {/* Phone - Just Display */}
+        <div className="flex items-center justify-center gap-3 p-2 border-t border-slate-700 pt-6">
+          <span className="text-2xl">📱</span>
+          <span className="text-slate-300 text-lg">0312-7907581</span>
+        </div>
+        
+        {/* Location - Just Display */}
+        <div className="flex items-center justify-center gap-3 p-2">
+          <span className="text-2xl">📍</span>
+          <span className="text-slate-300 text-lg">Islamabad, Pakistan</span>
+        </div>
+        
+      </div>
+    </motion.div>
+  </motion.div>
+</section>
 
       {/* FOOTER */}
       <motion.footer
