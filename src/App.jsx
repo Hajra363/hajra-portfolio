@@ -10,7 +10,6 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
-  // Mouse follow effect
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -122,7 +121,6 @@ export default function App() {
     category: "dev"
   }
 ];
-
   // Experience based on your CV
   const experiences = [
     {
@@ -141,12 +139,13 @@ export default function App() {
     },
   ];
 
-  // Education
+  // Education with CGPA
   const education = {
     degree: "BSc Information Engineering Technology (IET)",
     duration: "4-Year Program (3 Years Academic + 1 Year Internship)",
     status: "Final Year - Academic Internship Completed",
     location: "Islamabad, Pakistan",
+    cgpa: "3.65/4.0",
     courses: ["UI/UX Design", "Web Development", "Human-Computer Interaction", "Database Management", "Artificial Intelligence"]
   };
 
@@ -397,7 +396,7 @@ export default function App() {
               Beautiful Experiences
             </span>
           </motion.h1>
-          
+        
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -424,12 +423,6 @@ export default function App() {
               className="px-4 py-2 bg-slate-800/50 rounded-full text-sm border border-slate-700 backdrop-blur-sm"
             >
               📧 hajranawazish8@gmail.com
-            </motion.span>
-            <motion.span
-              whileHover={{ scale: 1.05, y: -2 }}
-              className="px-4 py-2 bg-slate-800/50 rounded-full text-sm border border-slate-700 backdrop-blur-sm"
-            >
-              📱 0312-7907581
             </motion.span>
           </motion.div>
           
@@ -603,6 +596,14 @@ export default function App() {
                   className="text-pink-300 mt-2 font-semibold"
                 >
                   {education.status}
+                </motion.p>
+                <motion.p
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.25 }}
+                  className="text-emerald-400 mt-2 font-semibold"
+                >
+                  CGPA: {education.cgpa}
                 </motion.p>
               </div>
               <motion.div
@@ -1004,14 +1005,8 @@ export default function App() {
           <p className="text-slate-500 text-sm">Click on email to open Gmail</p>
         </div>
         
-        {/* Phone - Just Display */}
-        <div className="flex items-center justify-center gap-3 p-2 border-t border-slate-700 pt-6">
-          <span className="text-2xl">📱</span>
-          <span className="text-slate-300 text-lg">0312-7907581</span>
-        </div>
-        
         {/* Location - Just Display */}
-        <div className="flex items-center justify-center gap-3 p-2">
+        <div className="flex items-center justify-center gap-3 p-2 border-t border-slate-700 pt-6">
           <span className="text-2xl">📍</span>
           <span className="text-slate-300 text-lg">Islamabad, Pakistan</span>
         </div>
